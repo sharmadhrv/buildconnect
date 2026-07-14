@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const contractorController_1 = require("../controllers/contractorController");
+const authMiddleware_1 = require("../middleware/authMiddleware");
+const rbacMiddleware_1 = require("../middleware/rbacMiddleware");
+const router = (0, express_1.Router)();
+// Apply auth and role protection (Restricted to contractors only)
+router.use(authMiddleware_1.requireAuth);
+router.use((0, rbacMiddleware_1.requireRoles)(['contractor']));
+router.get('/profile', contractorController_1.ContractorController.getProfile);
+router.put('/profile', contractorController_1.ContractorController.updateProfile);
+router.put('/skills', contractorController_1.ContractorController.updateSkills);
+router.put('/categories', contractorController_1.ContractorController.updateCategories);
+router.post('/upload-document', contractorController_1.ContractorController.uploadDocument);
+router.post('/verify', contractorController_1.ContractorController.submitVerification);
+router.get('/analytics', contractorController_1.ContractorController.getAnalytics);
+router.get('/applications', contractorController_1.ContractorController.getApplications);
+router.get('/projects', contractorController_1.ContractorController.getProjects);
+router.get('/reviews', contractorController_1.ContractorController.getReviews);
+exports.default = router;

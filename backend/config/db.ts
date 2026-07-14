@@ -1,5 +1,7 @@
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
+import fs from 'fs';
+import path from 'path';
 
 dotenv.config();
 
@@ -24,6 +26,35 @@ pool.connect(async (err, client, release) => {
     console.log('Successfully connected to PostgreSQL database.');
     try {
       if (client) {
+        // Check if users table exists
+        const tableCheck = await client.query(`
+          SELECT EXISTS (
+            SELECT FROM information_schema.tables 
+            WHERE table_schema = 'public' 
+            AND table_name = 'users'
+          );
+        `);
+        
+        const usersTableExists = tableCheck.rows[0]?.exists;
+        
+        if (!usersTableExists) {
+          console.log('Database tables do not exist. Initializing database schema from schema.sql...');
+          const schemaPath = path.join(__dirname, 'schema.sql');
+          const schemaSql = fs.readFileSync(schemaPath, 'utf8');
+          await client.query(schemaSql);
+          console.log('Database schema initialized successfully.');
+          
+          try {
+            console.log('Seeding initial database data from seed.sql...');
+            const seedPath = path.join(__dirname, 'seed.sql');
+            const seedSql = fs.readFileSync(seedPath, 'utf8');
+            await client.query(seedSql);
+            console.log('Database seed data loaded successfully.');
+          } catch (seedErr) {
+            console.warn('Database seed failed (continuing):', seedErr);
+          }
+        }
+
         await client.query(`
           ALTER TABLE users ADD COLUMN IF NOT EXISTS is_suspended BOOLEAN DEFAULT FALSE;
 
