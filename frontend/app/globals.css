@@ -1,26 +1,131 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAFAF8; /* Cream background */
+  --foreground: #1C2B3A; /* Slate main text */
+  --card: #FFFFFF;
+  --border: #DDE4EC;
+  
+  --brand-orange: #E85D20;
+  --brand-orange-light: #FF7A3C;
+  --brand-orange-pale: #FFF0E8;
+  --brand-orange-dark: #B84010;
+  
+  --brand-slate: #1C2B3A;
+  --brand-slate-medium: #2E4057;
+  --brand-slate-light: #4A6080;
+  --brand-slate-pale: #EEF2F7;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-orange-light: var(--brand-orange-light);
+  --color-brand-orange-pale: var(--brand-orange-pale);
+  --color-brand-orange-dark: var(--brand-orange-dark);
+  
+  --color-brand-slate: var(--brand-slate);
+  --color-brand-slate-medium: var(--brand-slate-medium);
+  --color-brand-slate-light: var(--brand-slate-light);
+  --color-brand-slate-pale: var(--brand-slate-pale);
+  
+  --color-card: var(--card);
+  --color-border: var(--border);
+  
+  --font-sans: var(--font-dm-sans), sans-serif;
+  --font-syne: var(--font-syne), sans-serif;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-syne), sans-serif;
+}
+
+/* Dashboard & Panel overrides for light-theme compatibility */
+
+.bg-brand-cream h1, 
+.bg-brand-cream h2, 
+.bg-brand-cream h3, 
+.bg-brand-cream h4, 
+.bg-brand-cream h5, 
+.bg-brand-cream h6,
+.bg-brand-cream .text-white {
+  color: #1C2B3A !important;
+}
+
+.bg-brand-cream p, 
+.bg-brand-cream .text-slate-400, 
+.bg-brand-cream .text-slate-500,
+.bg-brand-cream .text-slate-300 {
+  color: #4A6080 !important;
+}
+
+.bg-brand-cream .text-slate-100 {
+  color: #1C2B3A !important;
+}
+
+/* Overriding background cards to premium white cards with proper borders */
+.bg-brand-cream .bg-slate-900, 
+.bg-brand-cream .bg-slate-900\/60,
+.bg-brand-cream .bg-slate-900\/40,
+.bg-brand-cream .bg-slate-950,
+.bg-brand-cream .bg-slate-950\/20, 
+.bg-brand-cream .bg-slate-950\/40,
+.bg-brand-cream .bg-slate-950\/60,
+.bg-brand-cream .bg-slate-950\/80 {
+  background-color: #FFFFFF !important;
+  border-color: #DDE4EC !important;
+  color: #1C2B3A !important;
+}
+
+/* Table overrides */
+.bg-brand-cream td, 
+.bg-brand-cream th,
+.bg-brand-cream table {
+  color: #1C2B3A !important;
+  border-color: #DDE4EC !important;
+}
+
+.bg-brand-cream thead {
+  background-color: #EEF2F7 !important;
+  color: #4A6080 !important;
+}
+
+/* Sidebar overrides - keep sidebar dark slate as in mockup */
+aside.bg-brand-slate {
+  background-color: #1C2B3A !important;
+}
+
+aside.bg-brand-slate h1,
+aside.bg-brand-slate h2,
+aside.bg-brand-slate h3,
+aside.bg-brand-slate span,
+aside.bg-brand-slate button {
+  color: #EEF2F7 !important;
+}
+
+aside.bg-brand-slate button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+}
+
+aside.bg-brand-slate button.bg-brand-orange {
+  background-color: #E85D20 !important;
+  color: #FFFFFF !important;
+}
+
+aside.bg-brand-slate button.bg-brand-orange:hover {
+  background-color: #B84010 !important;
+}
+
+aside.bg-brand-slate .bg-brand-slate-medium\/40 {
+  background-color: #2E4057 !important;
+  border-color: #4A6080 !important;
 }

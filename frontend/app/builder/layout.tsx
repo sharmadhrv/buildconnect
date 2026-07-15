@@ -99,26 +99,24 @@ const BuilderLayout = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div className="flex-1 flex min-h-screen bg-slate-950 text-slate-100">
+    <div className="flex-1 flex min-h-screen bg-brand-cream text-brand-slate">
       {/* SIDEBAR NAVIGATION */}
-      <aside className="w-64 border-r border-slate-800 bg-slate-900/40 backdrop-blur-md flex flex-col justify-between">
+      <aside className="w-64 border-r border-brand-slate bg-brand-slate flex flex-col justify-between">
         <div className="flex flex-col">
           {/* Logo Brand */}
-          <div className="p-6 border-b border-slate-800 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center shadow-md shadow-purple-500/20">
-              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16" />
-              </svg>
+          <div className="p-6 border-b border-brand-slate-medium flex items-center gap-3">
+            <div className="w-[26px] h-[26px] bg-brand-orange rounded-md flex items-center justify-center text-white font-syne font-extrabold text-sm">
+              B
             </div>
-            <span className="font-bold text-lg bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-              BuildConnect
+            <span className="font-syne font-extrabold text-lg text-white tracking-tight">
+              Build<span className="text-brand-orange-light">Connect</span>
             </span>
           </div>
 
           {/* Builder Mini profile */}
-          <div className="p-4 mx-4 my-6 bg-slate-900/60 border border-slate-800 rounded-2xl flex flex-col gap-2">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Builder account</span>
-            <span className="text-sm font-semibold truncate text-slate-200">
+          <div className="p-4 mx-4 my-6 bg-brand-slate-medium/40 border border-brand-slate-light/10 rounded-2xl flex flex-col gap-2">
+            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Builder account</span>
+            <span className="text-sm font-semibold truncate text-slate-100">
               {profileData?.company_name || 'My Company'}
             </span>
             <div className="flex items-center gap-2 mt-1">
@@ -139,11 +137,11 @@ const BuilderLayout = ({ children }: { children: React.ReactNode }) => {
                   onClick={() => router.push(item.path)}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                     active
-                      ? 'bg-purple-600/10 border border-purple-500/30 text-purple-300 shadow-md'
-                      : 'border border-transparent text-slate-400 hover:bg-slate-900/60 hover:text-slate-200'
+                      ? 'bg-brand-orange text-white shadow-md shadow-brand-orange/20'
+                      : 'border border-transparent text-slate-400 hover:bg-white/10 hover:text-white'
                   }`}
                 >
-                  <span className={active ? 'text-purple-400' : 'text-slate-500'}>
+                  <span className={active ? 'text-white' : 'text-slate-500'}>
                     {item.icon}
                   </span>
                   {item.name}
@@ -154,10 +152,10 @@ const BuilderLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
 
         {/* Logout section */}
-        <div className="p-4 border-t border-slate-800">
+        <div className="p-4 border-t border-brand-slate-medium">
           <button
             onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-slate-400 hover:bg-rose-950/20 hover:text-rose-400 border border-transparent hover:border-rose-900/30 transition-all duration-250"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-slate-400 hover:bg-red-950/20 hover:text-red-400 border border-transparent hover:border-red-900/30 transition-all duration-250"
           >
             <svg className="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -168,7 +166,7 @@ const BuilderLayout = ({ children }: { children: React.ReactNode }) => {
       </aside>
 
       {/* MAIN CONTENT AREA */}
-      <main className="flex-1 flex flex-col overflow-y-auto bg-slate-950 p-8">
+      <main className="flex-1 flex flex-col overflow-y-auto bg-brand-cream p-8">
         {children}
       </main>
     </div>

@@ -238,7 +238,7 @@ const BuilderDashboard = () => {
               <span className="text-emerald-400 font-semibold">Online</span>
             </div>
             <div className="flex justify-between items-center py-2 border-b border-slate-800/40">
-              <span className="text-slate-400">PostgreSQL Connection Pool</span>
+              <span className="text-slate-400">Supabase Database</span>
               <span className="text-emerald-400 font-semibold">Active</span>
             </div>
             <div className="flex justify-between items-center py-2 border-b border-slate-800/40">

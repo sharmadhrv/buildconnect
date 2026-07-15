@@ -56,22 +56,22 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex-1 flex items-center justify-center p-6 bg-slate-950 relative overflow-hidden">
+    <div className="flex-1 flex items-center justify-center p-6 bg-brand-cream relative overflow-hidden">
       {/* Decorative gradient glow blobs */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-brand-slate-light/5 rounded-full blur-3xl" />
 
       <Card className="w-full max-w-md z-10 shadow-2xl">
         <CardHeader className="text-center">
-          <div className="mx-auto w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center mb-2 shadow-lg shadow-purple-500/20">
+          <div className="mx-auto w-12 h-12 rounded-2xl bg-brand-orange flex items-center justify-center mb-2 shadow-lg shadow-brand-orange/20">
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
           </div>
-          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+          <CardTitle className="text-2xl font-syne font-bold text-brand-slate">
             Welcome Back
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-brand-slate-light">
             Enter your credentials to access BuildConnect
           </CardDescription>
         </CardHeader>
@@ -99,7 +99,7 @@ const LoginPage = () => {
             />
 
             {(validationError || error) && (
-              <div className="p-3.5 bg-rose-500/10 border border-rose-500/20 rounded-xl text-xs text-rose-400 font-medium">
+              <div className="p-3.5 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 font-medium">
                 {validationError || error}
               </div>
             )}
@@ -114,11 +114,11 @@ const LoginPage = () => {
             </Button>
           </form>
 
-          <div className="mt-6 text-center text-xs text-slate-400">
+          <div className="mt-6 text-center text-xs text-brand-slate-light">
             Don&apos;t have an account?{' '}
             <button
               onClick={() => router.push('/register')}
-              className="text-purple-400 font-semibold hover:underline hover:text-purple-300 transition-colors"
+              className="text-brand-orange font-semibold hover:underline hover:text-brand-orange-dark transition-colors"
             >
               Create an account
             </button>

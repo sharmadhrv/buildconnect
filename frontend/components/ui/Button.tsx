@@ -32,12 +32,12 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles = {
-    primary: 'bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 text-white shadow-lg shadow-purple-500/20 border border-purple-500/20 hover:shadow-purple-500/30',
-    secondary: 'bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700/60 text-slate-100 hover:text-white backdrop-blur-sm',
-    outline: 'border-2 border-slate-700 bg-transparent text-slate-300 hover:bg-slate-800 hover:text-white hover:border-slate-500',
-    ghost: 'bg-transparent hover:bg-slate-800/60 text-slate-400 hover:text-slate-200 border border-transparent',
-    danger: 'bg-gradient-to-r from-rose-600 to-red-700 hover:from-rose-500 hover:to-red-600 text-white shadow-lg shadow-red-500/10 border border-red-500/10',
-    glass: 'bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-md hover:border-white/20 shadow-xl',
+    primary: 'bg-brand-orange hover:bg-brand-orange-dark text-white shadow-md shadow-brand-orange/10 border border-brand-orange hover:shadow-lg hover:shadow-brand-orange/20',
+    secondary: 'bg-brand-slate hover:bg-brand-slate-medium border border-brand-slate text-white',
+    outline: 'border border-brand-orange bg-transparent text-brand-orange hover:bg-brand-orange-pale',
+    ghost: 'bg-transparent hover:bg-brand-slate-pale text-brand-slate-light hover:text-brand-slate border border-transparent',
+    danger: 'bg-red-600 hover:bg-red-700 text-white shadow-sm border border-red-700',
+    glass: 'bg-white/80 hover:bg-white border border-brand-border text-brand-slate hover:bg-brand-slate-pale shadow-sm',
   };
 
   const spinner = (

@@ -76,24 +76,24 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="flex-1 flex items-center justify-center p-6 bg-slate-950 relative overflow-hidden">
+    <div className="flex-1 flex items-center justify-center p-6 bg-brand-cream relative overflow-hidden">
       {/* Glow elements */}
-      <div className="absolute top-1/4 right-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 right-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-brand-slate-light/5 rounded-full blur-3xl" />
 
       <Card className="w-full max-w-md z-10 shadow-2xl">
         <CardHeader className="text-center">
-          <div className="mx-auto w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center mb-2 shadow-lg shadow-purple-500/20">
+          <div className="mx-auto w-12 h-12 rounded-2xl bg-brand-orange flex items-center justify-center mb-2 shadow-lg shadow-brand-orange/20">
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
             </svg>
           </div>
           
-          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+          <CardTitle className="text-2xl font-syne font-bold text-brand-slate">
             {step === 1 ? 'Create Account' : 'Verify Your Email'}
           </CardTitle>
           
-          <CardDescription>
+          <CardDescription className="text-brand-slate-light">
             {step === 1 
               ? 'Join BuildConnect to hire or bid on work packages' 
               : `Enter the 6-digit code sent to ${email}`}
@@ -107,7 +107,7 @@ const RegisterPage = () => {
               
               {/* Role Toggle Selector */}
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider select-none">
+                <span className="text-xs font-semibold text-brand-slate-light uppercase tracking-wider select-none">
                   Select Role
                 </span>
                 <div className="grid grid-cols-2 gap-3">
@@ -116,8 +116,8 @@ const RegisterPage = () => {
                     onClick={() => setRole('builder')}
                     className={`py-3 px-4 rounded-xl border text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
                       role === 'builder'
-                        ? 'bg-purple-600/10 border-purple-500 text-purple-300'
-                        : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700'
+                        ? 'bg-brand-orange-pale border-brand-orange text-brand-orange'
+                        : 'bg-white border-brand-border text-brand-slate-light hover:border-brand-slate-medium'
                     }`}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -130,8 +130,8 @@ const RegisterPage = () => {
                     onClick={() => setRole('contractor')}
                     className={`py-3 px-4 rounded-xl border text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
                       role === 'contractor'
-                        ? 'bg-purple-600/10 border-purple-500 text-purple-300'
-                        : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700'
+                        ? 'bg-brand-orange-pale border-brand-orange text-brand-orange'
+                        : 'bg-white border-brand-border text-brand-slate-light hover:border-brand-slate-medium'
                     }`}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -171,7 +171,7 @@ const RegisterPage = () => {
               />
 
               {(validationError || error) && (
-                <div className="p-3.5 bg-rose-500/10 border border-rose-500/20 rounded-xl text-xs text-rose-400 font-medium">
+                <div className="p-3.5 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 font-medium">
                   {validationError || error}
                 </div>
               )}
@@ -191,7 +191,7 @@ const RegisterPage = () => {
           {step === 2 && (
             <form onSubmit={handleOtpSubmit} className="flex flex-col gap-4">
               {successMessage && (
-                <div className="p-3.5 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-xs text-emerald-400 font-medium text-center">
+                <div className="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-700 font-medium text-center">
                   {successMessage}
                 </div>
               )}
@@ -208,7 +208,7 @@ const RegisterPage = () => {
               />
 
               {validationError && (
-                <div className="p-3.5 bg-rose-500/10 border border-rose-500/20 rounded-xl text-xs text-rose-400 font-medium">
+                <div className="p-3.5 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 font-medium">
                   {validationError}
                 </div>
               )}
@@ -222,12 +222,12 @@ const RegisterPage = () => {
                 Verify Code
               </Button>
 
-              <div className="text-center text-xs text-slate-400">
+              <div className="text-center text-xs text-brand-slate-light">
                 Wrong email?{' '}
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="text-purple-400 font-semibold hover:underline"
+                  className="text-brand-orange font-semibold hover:underline"
                 >
                   Go back
                 </button>
@@ -236,11 +236,11 @@ const RegisterPage = () => {
           )}
 
           {step === 1 && (
-            <div className="mt-6 text-center text-xs text-slate-400">
+            <div className="mt-6 text-center text-xs text-brand-slate-light">
               Already have an account?{' '}
               <button
                 onClick={() => router.push('/login')}
-                className="text-purple-400 font-semibold hover:underline hover:text-purple-300 transition-colors"
+                className="text-brand-orange font-semibold hover:underline hover:text-brand-orange-dark transition-colors"
               >
                 Sign In
               </button>

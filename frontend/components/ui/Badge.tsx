@@ -23,13 +23,13 @@ const Badge: React.FC<BadgeProps> = ({
   };
 
   const variantStyles = {
-    primary: 'bg-purple-500/10 border-purple-500/30 text-purple-300 shadow-sm shadow-purple-500/5',
-    success: 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300 shadow-sm shadow-emerald-500/5',
-    warning: 'bg-amber-500/10 border-amber-500/30 text-amber-300 shadow-sm shadow-amber-500/5',
-    danger: 'bg-rose-500/10 border-rose-500/30 text-rose-300 shadow-sm shadow-rose-500/5',
-    info: 'bg-sky-500/10 border-sky-500/30 text-sky-300 shadow-sm shadow-sky-500/5',
-    neutral: 'bg-slate-800/80 border-slate-700/60 text-slate-300',
-    glass: 'bg-white/5 border-white/10 text-white backdrop-blur-md',
+    primary: 'bg-brand-orange-pale border-brand-orange/20 text-brand-orange shadow-sm',
+    success: 'bg-emerald-50 border-emerald-200 text-emerald-700 shadow-sm',
+    warning: 'bg-amber-50 border-amber-200 text-amber-700 shadow-sm',
+    danger: 'bg-rose-50 border-rose-200 text-rose-700 shadow-sm',
+    info: 'bg-sky-50 border-sky-200 text-sky-700 shadow-sm',
+    neutral: 'bg-brand-slate-pale border-brand-slate-medium/10 text-brand-slate-light',
+    glass: 'bg-white/40 border-brand-border text-brand-slate',
   };
 
   return (

@@ -241,7 +241,7 @@ const ContractorDashboard = () => {
           </CardHeader>
           <CardContent className="flex flex-col gap-4 text-xs">
             <div className="flex justify-between items-center py-2 border-b border-slate-800/40">
-              <span className="text-slate-400">PostgreSQL Connection Pool</span>
+              <span className="text-slate-400">Supabase Database</span>
               <span className="text-emerald-400 font-semibold">Active</span>
             </div>
             <div className="flex justify-between items-center py-2 border-b border-slate-800/40">

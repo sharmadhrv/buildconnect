@@ -23,10 +23,10 @@ const pool = connectionString
 // Test connection and execute auto-migrations
 pool.connect(async (err, client, release) => {
     if (err) {
-        console.error('Error acquiring client', err.stack);
+        console.error('Error acquiring client for Supabase database', err.stack);
     }
     else {
-        console.log('Successfully connected to PostgreSQL database.');
+        console.log(`Successfully connected to database: ${client ? client.host : 'unknown host'}/${client ? client.database : 'unknown db'}`);
         try {
             if (client) {
                 // Check if users table exists
@@ -68,11 +68,11 @@ pool.connect(async (err, client, release) => {
           ALTER TABLE quotations DROP CONSTRAINT IF EXISTS quotations_status_check;
           ALTER TABLE quotations ADD CONSTRAINT quotations_status_check CHECK (status IN ('pending', 'countered', 'accepted', 'rejected'));
         `);
-                console.log('PostgreSQL auto-migrations: user suspension and quotations table structure verified.');
+                console.log('Supabase database auto-migrations: user suspension and quotations table structure verified.');
             }
         }
         catch (migErr) {
-            console.error('PostgreSQL auto-migration failed:', migErr);
+            console.error('Supabase database auto-migration failed:', migErr);
         }
         finally {
             release();
